@@ -52,5 +52,5 @@ def vis_utils(flg):
             
     if flg == 'category':
         return idx_to_path, categories, cat_list
-    else if flg == 'img':
+    else:
         return idx_to_path, bbox, categories, cat_target
