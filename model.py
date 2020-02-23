@@ -4,10 +4,9 @@ from keras.applications.resnet50 import ResNet50
 from keras.regularizers import l2
 
 
-def model():
+def create_model():
     model_resnet = ResNet50(weights='imagenet', include_top=False, pooling='avg')
     for layer in model_resnet.layers[:-12]:
-        # 6 - 12 - 18 have been tried. 12 is the best.
         layer.trainable = False
 
     x = model_resnet.output

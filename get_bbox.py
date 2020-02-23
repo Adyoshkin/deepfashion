@@ -1,6 +1,6 @@
 import cv2
 import re
-splitter = re.compile("\s+")
+
 
 def create_dict_bboxes(list_all, split='train'):
     lst = [(line[0], line[1], line[3], line[2]) for line in list_all if line[2] == split]
@@ -19,7 +19,9 @@ def create_dict_bboxes(list_all, split='train'):
     
     return dict_
 
-def get_dict_bboxes():
+def get_dict_bboxes(mode='train'):
+    splitter = re.compile("\s+")
+    
     with open('./anno/list_category_img.txt', 'r') as category_img_file, \
             open('./anno/list_eval_partition.txt', 'r') as eval_partition_file, \
             open('./anno/list_bbox.txt', 'r') as bbox_file: 
@@ -35,9 +37,13 @@ def get_dict_bboxes():
                 for k, v, b in zip(list_category_img, list_eval_partition, list_bbox)]
 
     list_all.sort(key=lambda x: x[1])
+    
 
-    dict_train = create_dict_bboxes(list_all)
-    dict_val = create_dict_bboxes(list_all, split='val')
-    dict_test = create_dict_bboxes(list_all, split='test')
-
-    return dict_train, dict_val, dict_test
+    if mode == 'test':
+        dict_bboxs = create_dict_bboxes(list_all, split='test')
+    else:
+        dict_train = create_dict_bboxes(list_all)
+        dict_val = create_dict_bboxes(list_all, split='val')
+        dict_bboxs = (dict_train, dict_val)
+        
+    return dict_bboxs

@@ -1,10 +1,10 @@
 import numpy as np
-from config import BASE_PATH
+from config import BASE_DIR
 
 def get_path_id():
     path_to_idx = {}
     idx_to_path = {}
-    bbox_file = open(BASE_PATH + 'anno/list_bbox.txt', 'r').readlines()
+    bbox_file = open(BASE_DIR + 'anno/list_bbox.txt', 'r').readlines()
     bbox = [[int(v) if i > 0 else v for i, v in enumerate(list(filter(None, x[:-1].split(' '))))] for x in bbox_file[2:]]
     for i, cur_bbox in enumerate(bbox):
         path = cur_bbox[0]
@@ -14,7 +14,7 @@ def get_path_id():
     return path_to_idx, idx_to_path
 
 def get_bbox():
-    bbox_file = open(BASE_PATH + 'anno/list_bbox.txt', 'r').readlines()
+    bbox_file = open(BASE_DIR + 'anno/list_bbox.txt', 'r').readlines()
     bbox = [[int(v) if i > 0 else v for i, v in enumerate(list(filter(None, x[:-1].split(' '))))] for x in bbox_file[2:]]
     bbox = np.array([ln[1:] for ln in bbox], dtype=np.int32)
     
@@ -22,7 +22,7 @@ def get_bbox():
     
 
 def get_categories():
-    cats_file = open(BASE_PATH + 'anno/list_category_cloth.txt', 'r').readlines()
+    cats_file = open(BASE_DIR + 'anno/list_category_cloth.txt', 'r').readlines()
     categories = []
     for ln in cats_file[2:]:
         cur = list(filter(None, ln[:-1].split(' ')))
@@ -36,7 +36,7 @@ def vis_utils(flg):
     bbox = get_bbox()
     categories = get_categories()
     
-    cats_img_file = open(BASE_PATH + 'anno/list_category_img.txt', 'r').readlines()
+    cats_img_file = open(BASE_DIR + 'anno/list_category_img.txt', 'r').readlines()
     cat_target = np.zeros((len(idx_to_path), len(categories)), dtype=np.uint8)
     cat_list = {}
 

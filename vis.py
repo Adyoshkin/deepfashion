@@ -4,9 +4,10 @@ import numpy as np
 from skimage.io import imread
 import matplotlib.patches as patches
 
-from config import BASE_PATH
+from config import BASE_DIR
 from utils import vis_utils
 
+    
 def vis_category(idx=None, name=None, cols=4, rows=4):
     idx_to_path, categories, cat_list = vis_utils('category')
     
@@ -23,7 +24,7 @@ def vis_category(idx=None, name=None, cols=4, rows=4):
             idx = cur_row * cols + cur_col 
             plt.subplot(rows, cols, idx + 1)
             plt.axis('off')
-            plt.imshow(imread(BASE_PATH + idx_to_path[cur_lst[idx]]))  
+            plt.imshow(imread(BASE_DIR + idx_to_path[cur_lst[idx]]))  
     plt.subplots_adjust(wspace=0.0, hspace=0.2)
 
 def vis_img(path=None, idx=None):
@@ -39,7 +40,7 @@ def vis_img(path=None, idx=None):
         cur_idx = path_to_idx[path]
         category = categories[cat_target[cur_idx].argmax()]
     
-    plt.imshow(imread(BASE_PATH + cur_path))
+    plt.imshow(imread(BASE_DIR + cur_path))
 
     p1, p2 = bbox[cur_idx][:2], bbox[cur_idx][2:]
     rect = patches.Rectangle((bbox[cur_idx][[0, 2]].min(), bbox[cur_idx][[1, 3]].min()), 
