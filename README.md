@@ -11,8 +11,8 @@ InputImage -> Resnet50
 ```
 ### Loss function
 ```sh
-Category: categorical_crossentropy
-Bbox: mean_squared_error
+Category: CrossEntropy
+Bbox: MSE
 ```
 
 ### Train
