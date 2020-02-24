@@ -2,6 +2,14 @@
 [Deep Fashion Dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html), especially "[Category and Attribute Prediction Benchmark](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion/AttributePrediction.html)", was used for training.
 It requires to follow download-instructions from *Deep Fashion* Dataset to use the dataset.
 
+### MODEL
+```sh
+						     ->	Classification Head (Categories)
+InputImage	->	Resnet50 + Layers	--
+		                                     ->	Regression Head	(bbox(x1, y1, x2, x3))
+
+```
+
 ### Train
 ```sh
 python train.py
@@ -11,13 +19,7 @@ python train.py
 ```sh
 python eval.py
 ```
-### MODEL
-```sh
-						                            ->	Classification Head (Categories)
-InputImage	->	VGG16 + Layers	--
-						                            ->	Regression Head	(Confidnence in the Classification head prediction)
 
-```
 
 ## Examples
 
