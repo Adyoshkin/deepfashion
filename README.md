@@ -5,7 +5,7 @@ It requires to follow download-instructions from *Deep Fashion* Dataset to use t
 ### MODEL
 ```sh
 						     ->	Classification Head (Categories)
-InputImage	->	Resnet50 + Layers	--
+InputImage	-> Resnet50 + Layers--
 		                                     ->	Regression Head	(bbox(x1, y1, x2, x3))
 
 ```
