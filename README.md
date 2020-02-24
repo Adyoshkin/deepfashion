@@ -24,7 +24,7 @@ python train.py
 ```sh
 python eval.py
 ```
-### Example of training, evaluation and visualizaion on Google colab
+### Example of training, evaluation and visualizaion on [Google Colab](https://colab.research.google.com)
 ```sh
 main.ipynb
 ```
