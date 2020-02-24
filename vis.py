@@ -5,7 +5,7 @@ import numpy as np
 from skimage.io import imread, imsave
 import matplotlib.patches as patches
 from keras.preprocessing.image import ImageDataGenerator   
-
+import os
 from get_bbox import get_dict_bboxes
 from dataloader import DirectoryIteratorWithBoundingBoxes
 from config import BASE_DIR, SAVE_DIR, CATEGORIES, TEST_DIR, TARGET_SIZE, MODEL_PATH
