@@ -24,7 +24,10 @@ python train.py
 ```sh
 python eval.py
 ```
-
+### Example of training, evaluation and visualizaion on Google colab
+```sh
+main.ipynb
+```
 
 ## Results
 
