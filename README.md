@@ -30,7 +30,9 @@ main.ipynb
 ```
 
 ## Results
-
+### Image accuracy: 0.52728125
+### Top-5 image accuracy: 0.84815625
+### Bounding boxes error: 0.013
 ![Bbox](/imgs/2.png)
 
 
