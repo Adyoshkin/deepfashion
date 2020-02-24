@@ -9,7 +9,11 @@ InputImage -> Resnet50
 	                -> Regression Head: (Dense->relu->Dense->relu-> Dense) -> bbox(x1, y1, x2, x3)
 
 ```
-
+### Loss function
+```sh
+'Category': 'categorical_crossentropy'
+'Bbox': 'mean_squared_error'
+```
 ### Train
 ```sh
 python train.py
