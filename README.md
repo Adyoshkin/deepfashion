@@ -4,9 +4,9 @@ It requires to follow download-instructions from *Deep Fashion* Dataset to use t
 
 ### MODEL
 ```sh
-			-> Classification Head: (Dense -> elu ->Dense -> softmax) -> category
+			-> Classification Head: (Dense->elu->Dense->softmax) -> category
 InputImage -> Resnet50 
-	                -> Regression Head: (Dense -> relu -> Dense -> relu -> Dense) -> bbox(x1, y1, x2, x3)
+	                -> Regression Head: (Dense->relu->Dense->relu-> Dense) -> bbox(x1, y1, x2, x3)
 
 ```
 
