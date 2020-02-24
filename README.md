@@ -11,6 +11,13 @@ python train.py
 ```sh
 python eval.py
 ```
+### MODEL
+```sh
+						                            ->	Classification Head (Categories)
+InputImage	->	VGG16 + Layers	--
+						                            ->	Regression Head	(Confidnence in the Classification head prediction)
+
+```
 
 ## Examples
 
