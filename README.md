@@ -6,7 +6,7 @@ It requires to follow download-instructions from *Deep Fashion* Dataset to use t
 ```sh
 			-> Classification Head: (Dense->elu->Dense->softmax) -> category
 InputImage -> Resnet50 
-	                -> Regression Head: (Dense->relu->Dense->relu-> Dense) -> bbox(x1, y1, x2, y2)
+	                -> Regression Head: (Dense->relu->Dense->relu->Dense) -> bbox(x1, y1, x2, y2)
 
 ```
 ### Loss function
