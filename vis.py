@@ -80,7 +80,7 @@ def vis_pred(cols=4, rows=4):
             pred_label = CATEGORIES[pred_labels[ind].argmax()]
             plt.subplot(rows, cols, idx + 1)
             plt.axis('off')
-            plt.title(f"true: {label}, pred: {pred_label}")
+            plt.title(f"{label}, {pred_label}")
             plt.imshow(imread(f'{SAVE_DIR}/{ind}.png'))
             p1, p2 = bbox[:2], bbox[2:]
             rect = patches.Rectangle((bbox[[0, 2]].min(), bbox[[1, 3]].min()), 
