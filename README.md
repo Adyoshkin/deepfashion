@@ -31,10 +31,10 @@ python eval.py
 main.ipynb
 ```
 
-## Results
-### Image accuracy: 0.52728125
-### Top-5 image accuracy: 0.84815625
-### Bounding boxes error: 0.013
+## Results on test
+### Image accuracy: 0.55
+### Top-5 image accuracy: 0.87
+### Bounding boxes error: 0.014
 ![Bbox](/imgs/2.png)
 
 
