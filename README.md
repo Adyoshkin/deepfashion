@@ -9,6 +9,7 @@ with Rich Annotations](https://www.cv-foundation.org/openaccess/content_cvpr_201
 			 -> Classification Head: (Dense->elu->Dense->softmax) -> category
 InputImage -> Resnet101* 
 	                 -> Regression Head: (Dense->relu->Dense->relu->Dense) -> bbox(x1, y1, x2, y2)
+
 *pretrained on ImageNet, just last 16 layers are trainable 
 ```
 ### Loss function
@@ -36,8 +37,8 @@ main.ipynb
 ### Top-5 image accuracy: 0.87
 ### Bounding boxes error: 0.014
 ### Format of output:
-*true category, predicted category*
-*red - true bbox, blue - predicted bbox*
-![Bbox](/imgs/2.png)
+#### *true category, predicted category*
+#### *red - true bbox, blue - predicted bbox*
+![Bbox](/imgs/example.png)
 
 
