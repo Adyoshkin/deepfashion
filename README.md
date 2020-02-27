@@ -6,9 +6,9 @@ It requires to follow download-instructions from *Deep Fashion* Dataset to use t
 with Rich Annotations](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Liu_DeepFashion_Powering_Robust_CVPR_2016_paper.pdf)
 ### Model
 ```sh
-			-> Classification Head: (Dense->elu->Dense->softmax) -> category
-InputImage -> Resnet50 
-	                -> Regression Head: (Dense->relu->Dense->relu->Dense) -> bbox(x1, y1, x2, y2)
+			 -> Classification Head: (Dense->elu->Dense->softmax) -> category
+InputImage -> Resnet101 
+	                 -> Regression Head: (Dense->relu->Dense->relu->Dense) -> bbox(x1, y1, x2, y2)
 
 ```
 ### Loss function
