@@ -1,12 +1,12 @@
 from keras.models import Model
 from keras.layers import Dense
-from keras.applications.resnet50 import ResNet50
+from keras.applications.resnet import ResNet101
 from keras.regularizers import l2
 
 
 def create_model():
-    model_resnet = ResNet50(weights='imagenet', include_top=False, pooling='avg')
-    for layer in model_resnet.layers[:-12]:
+    model_resnet = ResNet101(weights='imagenet', include_top=False, pooling='avg')
+    for layer in model_resnet.layers[:-16]:
         layer.trainable = False
 
     x = model_resnet.output
