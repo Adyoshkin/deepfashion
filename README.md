@@ -39,6 +39,7 @@ main.ipynb
 ### Format of output:
 #### *true category, predicted category*
 #### *red - true bbox, blue - predicted bbox*
-![Bbox](/imgs/example.png)
+![Bbox1](/imgs/10.png)
+![Bbox2](/imgs/example.png)
 
 
