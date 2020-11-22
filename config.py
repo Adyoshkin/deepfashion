@@ -9,7 +9,9 @@ TEST_DIR = '../data/img/test'
 LOG_DIR = "../logs"
 MODEL_PATH = "best_model.hdf5"
 
-TARGET_SIZE = (224, 224)
+WIDTH = 224
+HEIGHT = 224
+TARGET_SIZE = (WIDTH, HEIGHT)
 STEPS = 2000
 NUM_IMAGES = 289222
 

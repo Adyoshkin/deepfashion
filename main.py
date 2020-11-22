@@ -1,7 +1,9 @@
-from flask import Flask, render_template, flash, request, redirect
+from flask import Flask, render_template, flash, request, redirect, url_for
 from waitress import serve
+from werkzeug.utils import secure_filename
+from keras.models import load_model
 
-import os
+from scripts.predict import predict_on_img
 
 app = Flask(__name__)
 app.secret_key = "secret key"
@@ -31,10 +33,8 @@ def upload_image():
         flash('No image selected for uploading')
         return redirect(request.url)
     if file and allowed_file(file.filename):
-        # filename = secure_filename(file.filename)
-        filename = file.filename
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        print('upload_image filename: ' + filename)
+        filename = secure_filename(file.filename)
+        predict_on_img(model, file.read(), app.config['UPLOAD_FOLDER'], filename)
         flash('Image successfully uploaded and displayed')
         return render_template('upload.html', filename=filename)
     else:
@@ -42,7 +42,12 @@ def upload_image():
         return redirect(request.url)
 
 
+@app.route('/display/<filename>')
+def display_image(filename):
+    return redirect(url_for('static', filename='uploads/' + filename), code=301)
+
+
 if __name__ == '__main__':
-    # model = load_model('model/best_model.hdf5')
+    model = load_model('model/best_model.hdf5')
 
     serve(app, host='0.0.0.0', port=8008)
