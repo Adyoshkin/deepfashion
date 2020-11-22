@@ -1,4 +1,8 @@
 data/
+utils/assets
+utils/variables
+utils/*.pb
+logs/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

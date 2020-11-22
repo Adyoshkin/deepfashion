@@ -3,7 +3,7 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ReduceLROnPlateau, ModelCheckpoint, EarlyStopping, TensorBoard
 
 from config import TRAIN_DIR, VAL_DIR, LOG_DIR, MODEL_PATH, TARGET_SIZE
-from utils.utils import get_dict_bboxes
+from get_bbox import get_dict_bboxes
 from dataset.dataloader import DirectoryIteratorWithBoundingBoxes
 from network.net import create_model
 
@@ -33,13 +33,14 @@ def train():
     test_datagen = ImageDataGenerator()
 
     dict_train, dict_val = get_dict_bboxes()
+
     train_iterator = DirectoryIteratorWithBoundingBoxes(TRAIN_DIR, train_datagen, 
                                                         bounding_boxes=dict_train, target_size=TARGET_SIZE)
     test_iterator = DirectoryIteratorWithBoundingBoxes(VAL_DIR, test_datagen, 
                                                        bounding_boxes=dict_val, target_size=TARGET_SIZE)
     
     lr_reducer = ReduceLROnPlateau(monitor='val_loss', patience=12, factor=0.5, verbose=1)
-    tensorboard = TensorBoard(log_dir = LOG_DIR)
+    tensorboard = TensorBoard(log_dir=LOG_DIR)
     early_stopper = EarlyStopping(monitor='val_loss', patience=30, verbose=1)   
     checkpoint = ModelCheckpoint(MODEL_PATH)
 

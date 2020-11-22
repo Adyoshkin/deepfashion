@@ -1,2 +1,4 @@
+tensorflow
 opencv-python
 Keras
+pillow

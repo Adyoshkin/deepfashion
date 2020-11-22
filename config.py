@@ -1,13 +1,15 @@
 BASE_DIR = './'
-IMG_DIR = './img'
-SAVE_DIR = './preds'
-TRAIN_DIR = './img/train'
-VAL_DIR = './img/val'
-TEST_DIR = './img/test'
-LOG_DIR = "/content/drive/My Drive/deepfashion/logs"
-MODEL_PATH = "/content/drive/My Drive/deepfashion/models/model.h5"
 
-TARGET_SIZE = (200, 200)
+SAVE_DIR = './preds'
+
+IMG_DIR = '../data/img'
+TRAIN_DIR = '../data/img/train'
+VAL_DIR = '../data/img/val'
+TEST_DIR = '../data/img/test'
+LOG_DIR = "../logs"
+MODEL_PATH = ""
+
+TARGET_SIZE = (224, 224)
 STEPS = 2000
 NUM_IMAGES = 289222
 

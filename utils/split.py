@@ -7,7 +7,7 @@ from config import IMG_DIR
 def split_data():
     splitter = re.compile("\s+")
     
-    with open('./anno/list_eval_partition.txt', 'r') as eval_partition_file:
+    with open('../data/anno/list_eval_partition.txt', 'r') as eval_partition_file:
         list_eval_partition = [line.rstrip('\n') for line in eval_partition_file][2:]
         list_eval_partition = [splitter.split(line) for line in list_eval_partition]
         list_all = [(v[0][4:], v[0].split('/')[1].split('_')[-1], v[1]) for v in list_eval_partition]
