@@ -13,7 +13,8 @@ InputImage -> Resnet101*
 *pretrained on ImageNet, just last 16 layers are trainable 
 ```
 
-### Model weights is available [here](https://drive.google.com/drive/folders/1YzwgfZ5GkVpvSsm7uXwf6Hd3tCC1PZzP?usp=sharing)
+### *Model weights is available [here](https://drive.google.com/drive/folders/1YzwgfZ5GkVpvSsm7uXwf6Hd3tCC1PZzP?usp=sharing)*
+
 
 ### Loss function
 ```sh
