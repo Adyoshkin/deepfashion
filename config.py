@@ -7,7 +7,7 @@ TRAIN_DIR = '../data/img/train'
 VAL_DIR = '../data/img/val'
 TEST_DIR = '../data/img/test'
 LOG_DIR = "../logs"
-MODEL_PATH = ""
+MODEL_PATH = "best_model.hdf5"
 
 TARGET_SIZE = (224, 224)
 STEPS = 2000

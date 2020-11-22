@@ -2,3 +2,5 @@ tensorflow
 opencv-python
 Keras
 pillow
+matplotlib
+scikit-image

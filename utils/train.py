@@ -41,8 +41,9 @@ def train():
     
     lr_reducer = ReduceLROnPlateau(monitor='val_loss', patience=12, factor=0.5, verbose=1)
     tensorboard = TensorBoard(log_dir=LOG_DIR)
-    early_stopper = EarlyStopping(monitor='val_loss', patience=30, verbose=1)   
-    checkpoint = ModelCheckpoint(MODEL_PATH)
+    early_stopper = EarlyStopping(monitor='val_loss', patience=30, verbose=1)
+    checkpoint = ModelCheckpoint("best_model.hdf5", monitor='loss', verbose=1,
+                                 save_best_only=True, mode='auto', period=1)
 
     final_model.fit_generator(custom_generator(train_iterator),
                               steps_per_epoch=2000,  

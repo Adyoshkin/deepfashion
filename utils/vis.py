@@ -6,10 +6,10 @@ from skimage.io import imread, imsave
 import matplotlib.patches as patches
 from keras.preprocessing.image import ImageDataGenerator   
 import os
-from utils.utils import get_dict_bboxes
+from get_bbox import get_dict_bboxes
 from dataset.dataloader import DirectoryIteratorWithBoundingBoxes
 from config import BASE_DIR, SAVE_DIR, CATEGORIES, TEST_DIR, TARGET_SIZE, MODEL_PATH
-from utils.utils import vis_utils
+from utils import vis_utils
 
     
 def vis_category(idx=None, name=None, cols=4, rows=4):
@@ -30,6 +30,7 @@ def vis_category(idx=None, name=None, cols=4, rows=4):
             plt.axis('off')
             plt.imshow(imread(BASE_DIR + idx_to_path[cur_lst[idx]]))  
     plt.subplots_adjust(wspace=0.0, hspace=0.2)
+
 
 def vis_img(path=None, idx=None):
     idx_to_path, bbox, categories, cat_target = vis_utils('img')
@@ -52,6 +53,7 @@ def vis_img(path=None, idx=None):
     plt.gca().add_patch(rect)
     plt.title('Category: %s\n' % category)
 
+
 def vis_pred(cols=4, rows=4):
     model = load_model(MODEL_PATH)
     
@@ -60,7 +62,7 @@ def vis_pred(cols=4, rows=4):
     test_iterator = DirectoryIteratorWithBoundingBoxes(TEST_DIR, test_datagen, 
                                                        bounding_boxes=dict_test, target_size=TARGET_SIZE)
 
-    imgs, (labels, bboxs) =  test_iterator.next()
+    imgs, (labels, bboxs) = test_iterator.next()
     pred_labels, pred_bboxs = model.predict_on_batch(imgs)
     bboxs = bboxs * 200
     pred_bboxs = pred_bboxs * 200
