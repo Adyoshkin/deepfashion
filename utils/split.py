@@ -3,6 +3,7 @@ import os
 import re
 from config import IMG_DIR
 
+
 def split_data():
     splitter = re.compile("\s+")
     
@@ -22,6 +23,7 @@ def split_data():
                                   element[0].split('/')[0]))
         shutil.move(os.path.join(IMG_DIR, element[0]),
                     os.path.join(os.path.join(os.path.join(IMG_DIR, element[2]), element[1]), element[0]))
-        
+
+
 if __name__ == '__main__':
     split_data()

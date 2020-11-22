@@ -3,14 +3,16 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ReduceLROnPlateau, ModelCheckpoint, EarlyStopping, TensorBoard
 
 from config import TRAIN_DIR, VAL_DIR, LOG_DIR, MODEL_PATH, TARGET_SIZE
-from get_bbox import get_dict_bboxes
-from dataloader import DirectoryIteratorWithBoundingBoxes
-from model import create_model
+from utils.utils import get_dict_bboxes
+from dataset.dataloader import DirectoryIteratorWithBoundingBoxes
+from network.net import create_model
+
 
 def custom_generator(iterator):
     while True:
         batch_x, batch_y = iterator.next()
         yield (batch_x, batch_y)
+
 
 def train():
     final_model = create_model()
@@ -49,5 +51,7 @@ def train():
                               verbose=2,
                               shuffle=True,
                               callbacks=[lr_reducer, checkpoint, early_stopper, tensorboard])
+
+
 if __name__ == '__main__':
     train()

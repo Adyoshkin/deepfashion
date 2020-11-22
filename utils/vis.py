@@ -6,10 +6,10 @@ from skimage.io import imread, imsave
 import matplotlib.patches as patches
 from keras.preprocessing.image import ImageDataGenerator   
 import os
-from get_bbox import get_dict_bboxes
-from dataloader import DirectoryIteratorWithBoundingBoxes
+from utils.utils import get_dict_bboxes
+from dataset.dataloader import DirectoryIteratorWithBoundingBoxes
 from config import BASE_DIR, SAVE_DIR, CATEGORIES, TEST_DIR, TARGET_SIZE, MODEL_PATH
-from utils import vis_utils
+from utils.utils import vis_utils
 
     
 def vis_category(idx=None, name=None, cols=4, rows=4):

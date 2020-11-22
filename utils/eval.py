@@ -1,13 +1,15 @@
 from keras.models import load_model
 from keras.preprocessing.image import ImageDataGenerator
-from dataloader import DirectoryIteratorWithBoundingBoxes
-from get_bbox import get_dict_bboxes
+from dataset.dataloader import DirectoryIteratorWithBoundingBoxes
+from utils.utils import get_dict_bboxes
 from config import TEST_DIR, MODEL_PATH, TARGET_SIZE, STEPS
+
 
 def custom_generator(iterator):
     while True:
         batch_x, batch_y = iterator.next()
         yield (batch_x, batch_y)
+
 
 def evaluate():
     dict_test = get_dict_bboxes(mode='test')
@@ -24,6 +26,7 @@ def evaluate():
     print('Image accuracy: ' + str(scores[3]))
     print('Top-5 image accuracy: ' + str(scores[4]))
     print('Bounding boxes error: ' + str(scores[5]))
+
 
 if __name__ == '__main__':
     evaluate()

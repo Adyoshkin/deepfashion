@@ -1,6 +1,7 @@
 import numpy as np
 from config import BASE_DIR
 
+
 def get_path_id():
     path_to_idx = {}
     idx_to_path = {}
@@ -12,6 +13,7 @@ def get_path_id():
         path_to_idx[path] = i
     
     return path_to_idx, idx_to_path
+
 
 def get_bbox():
     bbox_file = open(BASE_DIR + 'anno/list_bbox.txt', 'r').readlines()

@@ -4,6 +4,7 @@ from keras.preprocessing.image import DirectoryIterator
 from keras import backend as K
 from keras.preprocessing import image
 
+
 class DirectoryIteratorWithBoundingBoxes(DirectoryIterator):
     def __init__(self, directory, image_data_generator, bounding_boxes: dict = None, target_size=(256, 256),
                  color_mode: str = 'rgb', classes=None, class_mode: str = 'categorical', batch_size: int = 32,
