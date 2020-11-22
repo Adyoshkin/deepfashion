@@ -33,6 +33,6 @@ python utils/train.py
 #### *true category, predicted category*
 #### *red - true bbox, blue - predicted bbox*
 ![Bbox1](/imgs/examples/10.png)
-![Bbox2](/imgs/example/example.png)
+![Bbox2](/imgs/examples/example.png)
 
 
