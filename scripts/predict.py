@@ -17,9 +17,9 @@ def predict_on_img(model, file, upload_folder, filename):
     pred_labels, pred_bboxs = model.predict(image)
     pred_bboxs = pred_bboxs[0] * WIDTH
     pred_category = CATEGORIES[pred_labels[0].argmax()]
-
-    fig = plt.figure(frameon=False)
-    fig.set_size_inches(WIDTH, HEIGHT)
+    print(pred_bboxs)
+    plt.figure(figsize=(4, 6))
+    plt.axis('off')
     plt.imshow(np_image.astype('uint8'))
 
     p1, p2 = pred_bboxs[:2], pred_bboxs[2:]
@@ -27,7 +27,5 @@ def predict_on_img(model, file, upload_folder, filename):
                              np.abs((p1 - p2))[0], np.abs((p1 - p2))[1], linewidth=1, edgecolor='r',
                              facecolor='none')
     plt.gca().add_patch(rect)
-
     plt.title(f'Category: {pred_category}')
-    plt.axis('off')
     plt.savefig(f'{upload_folder}/{filename}')
