@@ -4,3 +4,4 @@ Keras
 pillow
 matplotlib
 scikit-image
+flask
