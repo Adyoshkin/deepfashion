@@ -5,3 +5,4 @@ pillow
 matplotlib
 scikit-image
 flask
+waitress

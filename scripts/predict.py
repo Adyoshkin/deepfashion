@@ -2,6 +2,7 @@ from PIL import Image
 from skimage import transform
 import io
 
+
 def predict_on_img(image_byte):
     img = Image.open(io.BytesIO(image.read())).convert("RGB")
     np_image = np.array(img).astype('float32')
