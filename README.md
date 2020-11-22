@@ -4,7 +4,7 @@ It requires to follow download-instructions from *Deep Fashion* Dataset to use t
 ## Paper
 [DeepFashion: Powering Robust Clothes Recognition and Retrieval
 with Rich Annotations](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Liu_DeepFashion_Powering_Robust_CVPR_2016_paper.pdf)
-### Model
+### Model structure
 ```sh
 			 -> Classification Head: (Dense->elu->Dense->softmax) -> category
 InputImage -> Resnet101* 
@@ -12,6 +12,9 @@ InputImage -> Resnet101*
 
 *pretrained on ImageNet, just last 16 layers are trainable 
 ```
+
+### Model weights is available [here](https://drive.google.com/drive/folders/1YzwgfZ5GkVpvSsm7uXwf6Hd3tCC1PZzP?usp=sharing)
+
 ### Loss function
 ```sh
 Category: CrossEntropy
@@ -22,8 +25,6 @@ Bbox: MSE
 ```sh
 python utils/train.py
 ```
-
-
 
 ## Results on test
 ### Image accuracy: 0.56
