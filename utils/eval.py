@@ -14,11 +14,15 @@ def custom_generator(iterator):
 def evaluate():
     dict_test = get_dict_bboxes(mode='test')
     test_datagen = ImageDataGenerator()
-    test_iterator = DirectoryIteratorWithBoundingBoxes(TEST_DIR, test_datagen, shuffle = False,
-                                                       bounding_boxes=dict_test, target_size=TARGET_SIZE)
+    test_iterator = DirectoryIteratorWithBoundingBoxes(TEST_DIR,
+                                                       test_datagen,
+                                                       shuffle=False,
+                                                       bounding_boxes=dict_test,
+                                                       target_size=TARGET_SIZE)
     
     model = load_model(MODEL_PATH)
-    scores = model.evaluate_generator(custom_generator(test_iterator), steps=STEPS)
+    scores = model.evaluate_generator(custom_generator(test_iterator),
+                                      steps=STEPS)
 
     print('Multi target loss: ' + str(scores[0]))
     print('Image loss: ' + str(scores[1]))
