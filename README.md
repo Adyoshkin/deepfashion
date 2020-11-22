@@ -20,17 +20,10 @@ Bbox: MSE
 
 ### Train
 ```sh
-python train.py
+python utils/train.py
 ```
 
-### Evaluate
-```sh
-python eval.py
-```
-### Example of training, evaluation and visualizaion on [Google Colab](https://colab.research.google.com)
-```sh
-main.ipynb
-```
+
 
 ## Results on test
 ### Image accuracy: 0.56
@@ -39,7 +32,7 @@ main.ipynb
 ### Format of output:
 #### *true category, predicted category*
 #### *red - true bbox, blue - predicted bbox*
-![Bbox1](/imgs/10.png)
-![Bbox2](/imgs/example.png)
+![Bbox1](/imgs/examples/10.png)
+![Bbox2](/imgs/example/example.png)
 
 

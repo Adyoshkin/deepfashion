@@ -1,7 +1,5 @@
 data/
-utils/assets
-utils/variables
-utils/*.pb
+model/
 logs/
 
 # Byte-compiled / optimized / DLL files
