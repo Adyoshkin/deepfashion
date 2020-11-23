@@ -1,3 +1,11 @@
+### Installation
+```sh
+git clone https://github.com/adeshkin/deepfashion.git
+cd deepfashion 
+*download weights from gdirve:*
+*Model weights is available [here](https://drive.google.com/drive/folders/1YzwgfZ5GkVpvSsm7uXwf6Hd3tCC1PZzP?usp=sharing)*
+docker build -t deepfashion . && docker run -it -p 8008:8008 deepfashion 
+```
 ## *Deep Fashion* Dataset
 [Deep Fashion Dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html), especially "[Category and Attribute Prediction Benchmark](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion/AttributePrediction.html)", was used for training.
 It requires to follow download-instructions from *Deep Fashion* Dataset to use the dataset.
