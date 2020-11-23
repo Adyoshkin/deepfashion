@@ -7,4 +7,5 @@ scikit-image
 flask
 waitress
 werkzeug
-
+Flask-SQLAlchemy
+pybase64

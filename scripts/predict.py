@@ -8,7 +8,7 @@ import matplotlib.patches as patches
 from config import CATEGORIES, WIDTH, HEIGHT
 
 
-def predict_on_img(model, file, upload_folder, filename):
+def predict_on_img(model, file):
     pil_img = Image.open(io.BytesIO(file)).convert("RGB")
     np_image = np.array(pil_img).astype('float32')
     np_image = transform.resize(np_image, (WIDTH, HEIGHT, 3))
@@ -28,6 +28,6 @@ def predict_on_img(model, file, upload_folder, filename):
                              facecolor='none')
     plt.gca().add_patch(rect)
     plt.title(f'Category: {pred_category}')
-    plt.savefig(f'{upload_folder}/{filename}')
-
-    return pred_category, pred_bbox
+    f = io.BytesIO()
+    plt.savefig(f)
+    return f

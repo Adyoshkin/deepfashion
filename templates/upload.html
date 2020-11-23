@@ -15,9 +15,9 @@
 	  {% endif %}
 	{% endwith %}
 </p>
-{% if filename %}
+{% if content %}
 	<div>
-		<img src="{{ url_for('display_image', filename=filename) }}">
+		<img src="{{ content }}"/>
 	</div>
 {% endif %}
 <form method="post" action="/" enctype="multipart/form-data">
@@ -31,6 +31,5 @@
 	</p>
 </form>
 
-<a href="/history"><input type="button" value="History"></a>
 
 {% endblock %}
