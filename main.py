@@ -40,10 +40,12 @@ def upload_image():
     if 'file' not in request.files:
         flash('No file part')
         return redirect(request.url)
+
     file = request.files['file']
     if file.filename == '':
         flash('No image selected for uploading')
         return redirect(request.url)
+
     if file and allowed_file(file.filename):
         filename = f'pred_{secure_filename(file.filename)}'
 
@@ -55,6 +57,7 @@ def upload_image():
 
         flash('Prediction:')
         base64img = "data:image/png;base64,"+b64encode(pred_img.getvalue()).decode('ascii')
+
         return render_template('upload.html', content=base64img)
     else:
         flash('Allowed image types are -> png, jpg, jpeg')
@@ -62,7 +65,7 @@ def upload_image():
 
 
 if __name__ == '__main__':
-    model = load_model('model/best_model.hdf5')
+    model = load_model('best_model.hdf5')
     db.create_all()
 
     serve(app, host='0.0.0.0', port=8008)

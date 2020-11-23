@@ -1,6 +1,7 @@
 data/
-model/
+best_model.hdf5
 logs/
+static/image_storage.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
