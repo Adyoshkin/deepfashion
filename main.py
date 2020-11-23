@@ -35,7 +35,7 @@ def upload_image():
     if file and allowed_file(file.filename):
         filename = f'pred_{secure_filename(file.filename)}'
         predict_on_img(model, file.read(), app.config['UPLOAD_FOLDER'], filename)
-        flash('Image successfully uploaded and displayed')
+        flash('Success:')
         return render_template('upload.html', filename=filename)
     else:
         flash('Allowed image types are -> png, jpg, jpeg, gif')
