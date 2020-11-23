@@ -1,7 +1,7 @@
 from flask import Flask, render_template, flash, request, redirect, url_for
 from waitress import serve
 from keras.models import load_model
-
+from werkzeug.utils import secure_filename
 
 from scripts.predict import predict_on_img
 
@@ -18,16 +18,13 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
-@app.route('/', methods=['POST'])
+@app.route('/')
 def upload_form():
-    if request.method == 'POST':
-        return predict()
-    else:
-        return render_template('upload.html')
+    return render_template('upload.html')
 
 
-@app.route('/predicted', methods=['POST'])
-def predict():
+@app.route('/', methods=['POST'])
+def upload_image():
     if 'file' not in request.files:
         flash('No file part')
         return redirect(request.url)
@@ -36,8 +33,9 @@ def predict():
         flash('No image selected for uploading')
         return redirect(request.url)
     if file and allowed_file(file.filename):
-        filename = file.filename
+        filename = f'pred_{secure_filename(file.filename)}'
         predict_on_img(model, file.read(), app.config['UPLOAD_FOLDER'], filename)
+        # print('upload_image filename: ' + filename)
         flash('Image successfully uploaded and displayed')
         return render_template('upload.html', filename=filename)
     else:
@@ -48,7 +46,6 @@ def predict():
 @app.route('/display/<filename>')
 def display_image(filename):
     return redirect(url_for('static', filename='uploads/' + filename), code=301)
-
 
 if __name__ == '__main__':
     model = load_model('model/best_model.hdf5')

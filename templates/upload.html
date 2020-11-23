@@ -1,5 +1,9 @@
-<!doctype html>
-<title>to upload image and display prediction of category and bbox</title>
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<title>Python Flask Image Upload and Display Example</title>
 <h2>Select an image</h2>
 <p>
 	{% with messages = get_flashed_messages() %}
@@ -27,3 +31,5 @@
 		<input type="submit" value="Submit">
 	</p>
 </form>
+
+{% endblock %}
