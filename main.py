@@ -47,10 +47,12 @@ def upload_image():
 def display_image(filename):
     return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
+
 @app.route('/history')
 def show_history(filename):
-    
-    return 0
+    flash('Prediction:')
+    return render_template('upload.html', filename=filename)
+
 
 if __name__ == '__main__':
     model = load_model('model/best_model.hdf5')
