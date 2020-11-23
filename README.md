@@ -3,8 +3,7 @@
 git clone https://github.com/adeshkin/deepfashion.git
 cd deepfashion 
 ```
-*download weights from gdirve:*
-*Model weights is available [here](https://drive.google.com/drive/folders/1YzwgfZ5GkVpvSsm7uXwf6Hd3tCC1PZzP?usp=sharing)*
+*Download weights from [gdrive](https://drive.google.com/drive/folders/1YzwgfZ5GkVpvSsm7uXwf6Hd3tCC1PZzP?usp=sharing)*
 ```sh
 docker build -t deepfashion . && docker run -it -p 8008:8008 deepfashion 
 ```
