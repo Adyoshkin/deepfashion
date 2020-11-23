@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.secret_key = "secret key"
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///image_storage.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///static/image_storage.db"
 
 db = SQLAlchemy(app)
 
