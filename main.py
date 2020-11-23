@@ -10,6 +10,7 @@ app.secret_key = "secret key"
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
+db = ...
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 
@@ -46,8 +47,12 @@ def upload_image():
 def display_image(filename):
     return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
+@app.route('/history')
+def show_history(filename):
+    
+    return 0
 
 if __name__ == '__main__':
     model = load_model('model/best_model.hdf5')
-
+    db.create_all()
     serve(app, host='0.0.0.0', port=8008)
