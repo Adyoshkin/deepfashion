@@ -7,6 +7,7 @@ cd deepfashion
 ```sh
 docker build -t deepfashion . && docker run -it -p 8008:8008 deepfashion 
 ```
+*Choose image from imgs*
 
 ## *Deep Fashion* Dataset
 [Deep Fashion Dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html), especially "[Category and Attribute Prediction Benchmark](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion/AttributePrediction.html)", was used for training.
